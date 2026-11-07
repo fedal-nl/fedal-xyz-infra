@@ -1,0 +1,29 @@
+apiVersion: v1 # LimitRanges provide default resource requests and limits for containers that don't explicitly define them.
+kind: LimitRange
+metadata:
+  name: containr-limits
+  namespace: r2d2
+spec:
+  limits:
+  - type: Container
+    default:
+      cpu: 500m
+      memory: 512Mi
+    defaultRequest:
+      cpu: 100m
+      memory: 256Mi
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: containr-limits
+  namespace: aicentralhub
+spec:
+  limits:
+  - type: Container
+    default:
+      cpu: "1"
+      memory: 1Gi
+    defaultRequest:
+      cpu: 100m
+      memory: 256Mi

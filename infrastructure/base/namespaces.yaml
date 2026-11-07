@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: r2d2
+  labels:
+    app.kubernetes.io/part-of: fedal
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aicentralhub
+  labels:
+    app.kubernetes.io/part-of: fedal
