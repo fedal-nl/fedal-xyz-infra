@@ -1,16 +1,24 @@
 KUBECTL ?= kubectl
 
 INFRA_PATH := infrastructure/overlays/production
+.DEFAULT_GOAL := help
 
 .PHONY: help validate-infra diff-infra deploy-infra status top
 
 help:
-	@echo "Available commands:"
-	@echo "  make validate-infra"
-	@echo "  make diff-infra"
-	@echo "  make deploy-infra"
-	@echo "  make status"
-	@echo "  make top"
+	@printf '%s\n' \
+		'Usage: make <command>' \
+		'' \
+		'Infrastructure:' \
+		'  validate-infra  Render production Kustomize manifests to validate them.' \
+		'  diff-infra      Compare production manifests with the live cluster.' \
+		'  deploy-infra    Apply production manifests to the live cluster.' \
+		'' \
+		'Cluster status:' \
+		'  status          List pods in all namespaces.' \
+		'  top             Show pod resource usage in all namespaces.' \
+		'' \
+		'Run make help to show this list. GNU Make reserves --help for its own options.'
 
 validate-infra:
 	$(KUBECTL) kustomize $(INFRA_PATH)
