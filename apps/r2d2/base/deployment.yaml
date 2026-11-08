@@ -13,7 +13,7 @@ spec:
         app: r2d2-api
     spec:
       containers:
-        - name: r2d2-api
+        - name: api
           image: ghcr.io/fedal/r2d2-api:latest
           imagePullPolicy: Always
           ports:
@@ -27,7 +27,7 @@ spec:
               path: /health
               port: http
             periodSeconds: 5
-            failedThreshold: 30
+            failureThreshold: 30
           readinessProbe:
             httpGet:
               path: /health
