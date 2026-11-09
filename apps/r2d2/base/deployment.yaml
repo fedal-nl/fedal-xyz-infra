@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: ghcr.io/fedal/r2d2-api:latest
+          image: ghcr.io/fedal-nl/fedal-r2d2:latest
           imagePullPolicy: Always
           ports:
             - name: http
