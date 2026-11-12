@@ -18,6 +18,14 @@ patches:
           rollingUpdate:
             maxSurge: 1
             maxUnavailable: 0
+  # Keep the existing ClusterIP for the Nginx upstream
+  - target:
+      kind: Service
+      name: r2d2-api
+    patch: |-
+      - op: add
+        path: /spec/clusterIP
+        value: 10.43.179.41
 images:
   - name: ghcr.io/fedal-nl/fedal-r2d2
     newTag: latest
