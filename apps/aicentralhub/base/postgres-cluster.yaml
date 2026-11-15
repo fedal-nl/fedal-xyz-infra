@@ -9,7 +9,7 @@ spec:
   bootstrap:
     initdb:
       database: neondb
-      username: neondb_owner
+      owner: neondb_owner
       secret:
         name: aicentralhub-postgres-app
       encoding: UTF8
