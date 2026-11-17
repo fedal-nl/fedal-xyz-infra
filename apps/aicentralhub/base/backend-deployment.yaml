@@ -24,7 +24,7 @@ spec:
 
       initContainers:
         - name: collectstatic
-          image: ghcr.io/fedal-nl/aicentralhub-backend:0.2.5
+          image: ghcr.io/fedal-nl/aicentralhub-backend:v0.2.5
           command:
             - sh
             - -c
@@ -45,7 +45,7 @@ spec:
 
       containers:
         - name: backend
-          image: ghcr.io/fedal-nl/aicentralhub-backend:0.2.5
+          image: ghcr.io/fedal-nl/aicentralhub-backend:v0.2.5
           imagePullPolicy: IfNotPresent
           command:
             - uv
