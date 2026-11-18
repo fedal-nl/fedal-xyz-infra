@@ -4,3 +4,4 @@ resources:
   - namespaces.yaml
   - limitranges.yaml
   - resourcequotas.yaml
+  - headlamp/
