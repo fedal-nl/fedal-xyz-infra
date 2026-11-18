@@ -3,8 +3,47 @@ kind: ClusterRole
 metadata:
   name: headlamp-metrics-reader
 rules:
-  - apiGroups:
-      - metrics.k8s.io
+  # Kubernetes core resources
+  - apiGroups: [""]
+    resources:
+      - nodes
+      - pods
+      - pods/log
+      - services
+      - endpoints
+      - namespaces
+      - events
+      - persistentvolumes
+      - persistentvolumeclaims
+    verbs:
+      - get
+      - list
+      - watch
+
+  # Kubernetes workloads
+  - apiGroups: ["apps"]
+    resources:
+      - deployments
+      - replicasets
+      - statefulsets
+      - daemonsets
+    verbs:
+      - get
+      - list
+      - watch
+
+  # Jobs and CronJobs
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+      - cronjobs
+    verbs:
+      - get
+      - list
+      - watch
+
+  # Kubernetes metrics
+  - apiGroups: ["metrics.k8s.io"]
     resources:
       - nodes
       - pods
@@ -12,6 +51,7 @@ rules:
       - get
       - list
       - watch
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
