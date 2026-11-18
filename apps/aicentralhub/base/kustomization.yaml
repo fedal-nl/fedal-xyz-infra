@@ -6,3 +6,4 @@ resources:
   - uploads-pvc.yaml
   - backend-deployment.yaml
   - backend-service.yaml
+  - celery-worker-deployment.yaml
